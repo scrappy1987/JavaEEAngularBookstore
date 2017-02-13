@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+    <script src="scripts/angular.min.js"></script>
+</head>
+<body ng-init="books=[{'Title': 'Rats','Author': 'James Herbert'}, {'Title': 'Harry Potter','Author': 'JK Rowling'}, {'Title': 'Carrie','Author': 'Stephen King'}]">
+   <ul>
+       <li ng-repeat="book in books">{{book.Title}}  {{book.Author}} </li>
+   </ul>
+</body>
+</html>

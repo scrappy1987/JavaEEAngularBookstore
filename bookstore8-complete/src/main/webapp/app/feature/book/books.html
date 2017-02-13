@@ -1,0 +1,24 @@
+<div ng-controller="BookController as ctrl">
+<h2>Available Books</h2>
+    <div class="form-group">
+        <label bookfilter="usr">Filter:</label>
+        <input type="text" ng-model="bookFilter.Title" class="form-control" id="bookfilter">
+    </div>
+<br/><br/>
+<table class="table table-striped">
+    <tr>
+        <th>Author</th>
+        <th ng-click="ctrl.doSort()">Title</th>
+        <th>Genre</th>
+        <th>Published</th>
+    </tr>
+    <tr ng-repeat="book in ctrl.books | filter:bookFilter | orderBy:ctrl.sortBy:ctrl.reverse">
+        <td>{{book.author | uppercase}}</td>
+        <td>{{book.title | lowercase}}</td>
+        <td>{{book.genre}}</td>
+        <td>{{book.yearPublished}}</td>
+    </tr>
+</table>
+
+<span>Total books: {{ctrl.books.length}}</span>
+</div>

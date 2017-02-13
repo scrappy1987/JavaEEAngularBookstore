@@ -1,0 +1,1 @@
+Sixth exercise on exposing book store via REST.

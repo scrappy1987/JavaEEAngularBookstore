@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bookStore">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+
+</head>
+<body ng-controller="BookController as ctrl">
+    <h2>Books</h2>
+    Filter Books <input type="text" ng-model="bookFilter.Title">
+    <br/>
+    <table>
+        <tr>
+            <th>Author</th>
+            <th ng-click="ctrl.doSort()">Title</th>
+            <th>Genre</th>
+            <th>Published</th>
+        </tr>
+        <tr ng-repeat="book in ctrl.books | filter:bookFilter | orderBy:ctrl.sortBy:ctrl.reverse">
+            <td>{{book.Author | uppercase}}</td>
+            <td>{{book.Title | lowercase}}</td>
+            <td>{{book.Genre}}</td>
+            <td>{{book.Published}}</td>
+        </tr>
+    </table>
+
+    <span>Total books: {{ctrl.books.length}}</span>
+    <script src="scripts/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/controlleras.js"></script>
+</body>
+</html>

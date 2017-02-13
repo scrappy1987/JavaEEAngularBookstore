@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+    <script src="scripts/angular.min.js"></script>
+</head>
+<body ng-init="books=[{
+'Author': 'James Herbert',
+  'Title': 'Rats',
+  'Genre': 'Horror',
+  'Published': '1988'
+
+}, {
+	'Author': 'J K Rowling',
+  'Title': 'Harry Potter',
+  'Genre': 'Fantasy',
+  'Published': '1998'
+}, {
+	'Author': 'Stephen King',
+  'Title': 'Carrie',
+  'Genre': 'Horror',
+  'Published': '1984'
+}]">
+<h2>Books</h2>
+Filter Books <input type="text" ng-model="bookFilter.Title">
+<br/>
+<table>
+    <tr>
+        <th>Author</th>
+        <th ng-click="sortBy='title';reverse=!reverse">Title</th>
+        <th>Genre</th>
+        <th>Published</th>
+    </tr>
+    <tr ng-repeat="book in books | filter:bookFilter | orderBy:sortBy:reverse">
+        <td>{{book.Author | uppercase}}</td>
+        <td>{{book.Title | lowercase}}</td>
+        <td>{{book.Genre}}</td>
+        <td>{{book.Published}}</td>
+    </tr>
+</table>
+</body>
+</html>
